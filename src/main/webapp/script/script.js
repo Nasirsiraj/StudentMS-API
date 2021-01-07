@@ -1,0 +1,1 @@
+console.log("Welcome to Student Management System API")
