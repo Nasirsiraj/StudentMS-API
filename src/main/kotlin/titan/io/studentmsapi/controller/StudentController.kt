@@ -1,6 +1,7 @@
 package titan.io.studentmsapi.controller
 
 import lombok.extern.slf4j.Slf4j
+import org.jetbrains.annotations.NotNull
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import titan.io.studentmsapi.model.Student
@@ -22,6 +23,16 @@ class StudentController {
     @GetMapping("/student/{id}")
     fun getStudentById(@PathVariable id: Int): Student?{
         return studentService.getStudentById(id)
+    }
+    // get student by roll
+    @GetMapping("studentByRoll/{roll}")
+    fun getStudentByRoll(@PathVariable @NotNull roll: Int): Student?{
+        return studentService.getStudentByRoll(roll)
+    }
+    // get student by reg
+    @GetMapping("/studentByReg/{reg}")
+    fun getStudentByReg(@PathVariable @NotNull reg: Int): Student?{
+        return studentService.getStudentByReg(reg)
     }
     // post all student
     @PostMapping("/students")

@@ -7,7 +7,9 @@ import titan.io.studentmsapi.model.Student
 @SpringBootApplication
 class StudentmsApiApplication
 
-fun main(args: Array<String>) {
+fun main(
+    args: Array<String>
+) {
     runApplication<StudentmsApiApplication>(*args)
     println("Welcome to student management system api")
 }

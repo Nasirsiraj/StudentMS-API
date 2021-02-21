@@ -20,6 +20,14 @@ class StudentService {
     fun getStudentById(id: Int): Student?{
         return studentRepository.findById(id).orElse(null)
     }
+    // get student by roll
+    fun getStudentByRoll(roll: Int): Student?{
+        return studentRepository.findByRoll(roll)
+    }
+    // get student by reg
+    fun getStudentByReg(reg: Int): Student?{
+        return this.studentRepository.findByReg(reg)
+    }
     // post all student
     fun postAllStudent(students: MutableList<Student>): MutableList<Student>{
         return studentRepository.saveAll(students)

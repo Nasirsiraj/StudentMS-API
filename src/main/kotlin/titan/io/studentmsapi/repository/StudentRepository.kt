@@ -5,4 +5,7 @@ import org.springframework.stereotype.Repository
 import titan.io.studentmsapi.model.Student
 
 @Repository
-public interface StudentRepository: JpaRepository<Student, Int>{}
+public interface StudentRepository: JpaRepository<Student, Int>{
+    fun findByRoll(roll: Int): Student?
+    fun findByReg(reg: Int): Student?
+}
