@@ -1,6 +1,7 @@
 package titan.io.studentmsapi.service
 
 import lombok.extern.slf4j.Slf4j
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import titan.io.studentmsapi.model.Result
 import titan.io.studentmsapi.repository.ResultRepository
@@ -8,6 +9,7 @@ import titan.io.studentmsapi.repository.ResultRepository
 @Slf4j
 @Service
 class ResultService {
+    @Autowired
     lateinit var resultRepository: ResultRepository
     // get result by id
     fun getResultById(id: Int): Result?{

@@ -2,6 +2,7 @@ package titan.io.studentmsapi.controller
 
 import lombok.extern.slf4j.Slf4j
 import org.jetbrains.annotations.NotNull
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import titan.io.studentmsapi.model.Result
 import titan.io.studentmsapi.service.ResultService
@@ -10,6 +11,7 @@ import titan.io.studentmsapi.service.ResultService
 @RestController
 @CrossOrigin(origins = arrayOf("*"), allowedHeaders = arrayOf("*"))
 class ResultController {
+    @Autowired
     lateinit var resultService: ResultService
 
     // get result by id
@@ -18,7 +20,7 @@ class ResultController {
         return resultService.getResultById(id)
     }
     // get result by roll
-    @GetMapping("/result/{roll}")
+    @GetMapping("/resultByRoll/{roll}")
     fun getResultByRoll(@PathVariable @NotNull roll: Int): Result?{
         return resultService.getResultByRoll(roll)
     }
