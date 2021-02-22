@@ -33,8 +33,13 @@ class StudentService {
         return studentRepository.saveAll(students)
     }
     // post one student
-    fun postStudent(student: Student): Student{
-        return studentRepository.save(student)
+    fun postStudent(student: Student): Student?{
+        var existingStudent = studentRepository.findByRoll(student.roll)
+        if(existingStudent == null){
+            return studentRepository.save(student)
+        }else{
+            return null
+        }
     }
     // delete student by id
     fun deleteStudentById(id: Int): String{

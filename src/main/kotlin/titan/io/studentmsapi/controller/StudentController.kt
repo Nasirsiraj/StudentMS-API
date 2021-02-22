@@ -41,7 +41,7 @@ class StudentController {
     }
     // post one student
     @PostMapping("/student")
-    fun postOneStudent(@RequestBody student:Student): Student{
+    fun postOneStudent(@RequestBody student:Student): Student?{
         return studentService.postStudent(student)
     }
     // delete student by id

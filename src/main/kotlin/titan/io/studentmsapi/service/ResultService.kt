@@ -25,7 +25,12 @@ class ResultService {
     }
     // post one result
     fun postOneResult(result: Result): Result?{
-        return resultRepository.save(result)
+        var existingResult = resultRepository.findByRoll(result.roll)
+        return if(existingResult != null){
+            null
+        }else{
+            resultRepository.save(result)
+        }
     }
     // post all result
     fun postAllResult(results: MutableList<Result>): MutableList<Result>{
